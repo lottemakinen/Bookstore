@@ -25,7 +25,7 @@ public class BookstoreApplication {
 		return (args) -> {
 			log.info("save a couple of books");
 			bookRepository.save(new Book((long) 12334567,"Olipa kerran", "Maija Meikäläinen", 12345-21, 1999));	
-			
+			bookRepository.save(new Book((long)34566, "Harry Potter ja viisasten kivi", "J.K. Rowling", 3334-12, 1997));
 			log.info("fetch all books");
 			for (Book book : bookRepository.findAll()) {
 				log.info(book.toString());
