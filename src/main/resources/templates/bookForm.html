@@ -6,11 +6,15 @@
 </head>
 <body>
 	<h1>Book</h1>
-	<form action="#" th:action="@{/index}"  th:object= ${Book} method="post">
-	<p>Title: <input type="text" th:field="${Book.title}" /></p>
-	<p>Author: <input type="text" th:field="${Book.author}" /></p>
-	<p>Isbn: <input type="text" th:field="${Book.isbn}" /></p>
-	<p>Year: <input type="text" th:field="${Book.year}" /></p>
+	<form action="#" th:action="@{/savebook}"  th:object= ${book} method="post">
+	<p>Title: <input type="text" th:field="${book.title}" /></p>
+	<p>Author: <input type="text" th:field="${book.author}" /></p>
+	<p>Isbn: <input type="text" th:field="${book.isbn}" /></p>
+	<p>Year: <input type="text" th:field="${book.year}" /></p>
+	<select id="category" th:field="*{category}" class="form-control">
+		<option th:each="category:${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+	</select>
+	<p> </p>
 	<input type="submit" value="Submit" /> <input type="reset" value="Reset" />
 	</form>
     
