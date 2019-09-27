@@ -26,11 +26,11 @@ public class BookstoreApplication {
 	public CommandLineRunner bookDemo(BookRepository bookRepository, CategoryRepository categoryRepository) { 
 		return (args) -> {
 			log.info("save a couple of books");
-			categoryRepository.save(new Category((long) 1, "Horror"));
-			categoryRepository.save(new Category((long) 2, "Fantasy"));
+			categoryRepository.save(new Category("Horror"));
+			categoryRepository.save(new Category("Fantasy"));
 			
-			bookRepository.save(new Book((long) 1,"Olipa kerran", "Maija Meikäläinen", 12345-21, 1999));	
-			bookRepository.save(new Book((long)2, "Harry Potter ja viisasten kivi", "J.K. Rowling", 3334-12, 1997));
+			bookRepository.save(new Book("Olipa kerran", "Maija Meikäläinen", 12345-21, 1999));	
+			bookRepository.save(new Book("Harry Potter ja viisasten kivi", "J.K. Rowling", 3334-12, 1997));
 			log.info("fetch all books");
 			for (Book book : bookRepository.findAll()) {
 				log.info(book.toString());

@@ -21,13 +21,11 @@ public class Category {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
 	private List<Book> books;
 	
-	public Category(Long categoryid, String name) {
-		this.categoryid=categoryid;
+	public Category(String name) {
 		this.name=name;
 	}
 	
 	public Category() {
-		this.categoryid=null;
 		this.name=null;
 	}
 

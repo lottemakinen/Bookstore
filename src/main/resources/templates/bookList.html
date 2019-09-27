@@ -21,7 +21,7 @@
 			<td th:text="${Book.isbn}">Isbn</td>
 			<td th:text="${Book.year}">Year</td>
 			<td><a class="btn btn-danger" th:href="@{/deletebook/{id}(id=${Book.id})}">Delete</a></td>
-			<td><a th:href="@{/updatebook/{id}(id=${Book.id})}">Edit</a></td>
+			<td><a th:href="@{/editbook/{id}(id=${Book.id})}">Edit</a></td>
 		</tr>
 	</table>
 	<a href="/savebook" class="btn btn-success" >New Book</a>
