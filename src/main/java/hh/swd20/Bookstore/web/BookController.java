@@ -27,14 +27,19 @@ public class BookController {
 	@Autowired
 	CategoryRepository categoryRepository;
 	
-	@RequestMapping(value = "/books", method = RequestMethod.GET)
+	@RequestMapping(value="/login")
+    public String login() {	
+        return "login";
+    }
+	
+	@RequestMapping(value = "/booklist", method = RequestMethod.GET)
 	public String getBooks(Model model) {
 			List<Book> books =  (List<Book>) bookRepository.findAll(); 
 			model.addAttribute("books", books); 
 			return "bookList.html"; 							
 	}
 	
-    @RequestMapping(value="/booksrest", method = RequestMethod.GET)
+    @RequestMapping(value="/books", method = RequestMethod.GET)
     public @ResponseBody List<Book> bookListRest() {	
         return (List<Book>) bookRepository.findAll();
     }    
@@ -54,13 +59,13 @@ public class BookController {
 	@RequestMapping(value = "/savebook", method = RequestMethod.POST)
 	public String saveBook(@ModelAttribute Book book) {
 		bookRepository.save(book);
-		return "redirect:/books";
+		return "redirect:/booklist";
 	}
 	
 	@RequestMapping(value = "/deletebook/{id}", method = RequestMethod.GET)
 	public String deleteBook(@PathVariable("id") Long bookId) {
 		bookRepository.deleteById(bookId);
-		return "redirect:../books";
+		return "redirect:../booklist";
 	}
 	
 	
@@ -75,7 +80,7 @@ public class BookController {
 	@PostMapping("/updatebook")
 	public String updateBook(@ModelAttribute Book book) {
 		bookRepository.save(book);
-		return "redirect:/books";
+		return "redirect:/booklist";
 	}
 	
 	
